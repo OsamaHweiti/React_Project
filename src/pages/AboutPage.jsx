@@ -18,13 +18,9 @@ const AboutPage = () => {
           <div className="container text-center animated bounceInDown">
             <h1 className="display-1 mb-4">About Us</h1>
             <ol className="breadcrumb justify-content-center mb-0 animated bounceInDown">
-              <li className="breadcrumb-item">
-              <span className="home">  <a href="/">Home</a> </span>
-              </li>
+             
 
-              <li className="breadcrumb-item text-dark" aria-current="page">
-                About
-              </li>
+              
             </ol>
           </div>
         </div>
@@ -37,9 +33,7 @@ const AboutPage = () => {
                 <img src={MyImg} className="img-fluid rounded" alt="" />
               </div>
               <div className="col-lg-7 wow bounceInUp" data-wow-delay="0.3s">
-                <small className="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">
-                  About Us
-                </small>
+               
                 <h1 className="display-5 mb-4">
                   Trusted By 200 + satisfied clients
                 </h1>
@@ -79,9 +73,7 @@ const AboutPage = () => {
           <div className="container-fluid team py-6">
             <div className="container">
               <div className="text-center wow bounceInUp" data-wow-delay="0.1s">
-                <small className="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">
-                  Our Team
-                </small>
+               
                 <h1 className="display-5 mb-5">
                   We have experienced chef Team
                 </h1>

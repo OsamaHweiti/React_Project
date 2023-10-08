@@ -161,9 +161,14 @@ const Products = () => {
           
           
           
-         
+     
+        </div >
+        <div className="row mt-4">
+        <div className="col-12">
+          <h2 className="display-5 text-center">Product</h2>
+          <hr />
         </div>
-
+      </div>
         {filter.map((product) => {
           return (
             <div id={product.id} key={product.id} className="col-md-4 col-sm-6 col-xs-8 col-12 mb-4">
@@ -208,7 +213,7 @@ const Products = () => {
       <div className="container my-3 py-3">
         <div className="row">
           <div className="col-12">
-            <h2 className="display-5 text-center">Latest Products</h2>
+            <h2 className="display-5 text-center">Categories</h2>
             <hr />
           </div>
         </div>
