@@ -12,7 +12,7 @@ import MyImg from "../assets/jewl.jpg";
 import ering from "../assets/er.png";
 import nic from "../assets/nick.jpg";
 import all from "../assets/alll.webp";
-import rin from "../assets/OIP_1.jpg";
+import rin from "../assets/GUEST_b5569450-597f-45c7-889a-fbeae9ca0627.jpeg";
 const Products = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
@@ -83,20 +83,7 @@ const Products = () => {
    
         
       <div className="d-flex justify-content-between" style={{ margin: '10px' }}>
-      <Card style={{
-        width: '18rem',
-        height: '18rem',
-        backgroundImage: `url(${all})`, // Use string interpolation to include the image URL
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}>
-        <Card.Body>
-          
-         
-          <Button variant="primary" style={{ width: '100%' }} className="btn btn-outline-dark btn-sm m-2" onClick={() => setFilter(data)}>All</Button>
-        </Card.Body>
-      </Card>
-
+     
 
       <Card style={{
   width: '18rem',
