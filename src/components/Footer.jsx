@@ -22,8 +22,7 @@ export default function Footer() {
                 <img src={logoImage} alt="Logo" style={logoStyle} /> 
               </h6>
               <p>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit
-                amet, consectetur adipisicing elit.
+              Stay inspired about the latest trends, jewelry care tips, and special promotions by subscribing to our newsletter and following us on social media. We love sharing our passion for jewelry with you!
               </p>
             </MDBCol>
 

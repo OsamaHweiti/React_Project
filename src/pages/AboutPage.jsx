@@ -38,16 +38,12 @@ const AboutPage = () => {
                   Trusted By 200 + satisfied clients
                 </h1>
                 <p className="mb-4">
-                  Consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                  ut labore eit esdioilore magna aliqua. Ut enim ad minim
-                  veniam, quis nostrud exercitation ullaemco laboeeiris nisi ut
-                  aliquip ex ea commodo consequat. Duis aute irure dolor iesdein
-                  reprehendeerit in voluptate velit esse cillum dolore.
+                Our jewelry is crafted with the utmost precision and attention to detail. Each piece is a testament to the skill of our master jewelers, who combine traditional craftsmanship with contemporary design to create jewelry that stands the test of time. You'll find an array of exquisite options, from classic diamond jewelry to vibrant gemstone creations.
                 </p>
                 <div className="row g-4 text-dark mb-5">
                   <div className="col-sm-6">
                     <IoDiamond style={{ margin: "10px", color: "#D4A762" }} />
-                    Fresh and Fast food Delivery
+                    High Quality
                   </div>
                   <div className="col-sm-6">
                     <IoDiamond style={{ margin: "10px", color: "#D4A762" }} />
@@ -59,7 +55,7 @@ const AboutPage = () => {
                   </div>
                   <div className="col-sm-6">
                     <IoDiamond style={{ margin: "10px", color: "#D4A762" }} />
-                    Delicious Deals for Delicious Meals
+                    Expert Designers
                   </div>
                 </div>
               </div>
@@ -75,7 +71,7 @@ const AboutPage = () => {
               <div className="text-center wow bounceInUp" data-wow-delay="0.1s">
                
                 <h1 className="display-5 mb-5">
-                  We have experienced chef Team
+                  We have experienced designer Team
                 </h1>
               </div>
               <div className="row g-4">
@@ -91,7 +87,7 @@ const AboutPage = () => {
                     />
                     <div className="team-content text-center py-3 bg-dark rounded-bottom">
                       <h4 className="text-primary">Henry</h4>
-                      <p className="text-white mb-0">Decoration Chef</p>
+                      <p className="text-white mb-0">Decoration Designer</p>
                     </div>
                     <div className="team-icon d-flex flex-column justify-content-center m-4">
                       <a
@@ -127,7 +123,7 @@ const AboutPage = () => {
                     />
                     <div className="team-content text-center py-3 bg-dark rounded-bottom">
                       <h4 className="text-primary">Jemes Born</h4>
-                      <p className="text-white mb-0">Executive Chef</p>
+                      <p className="text-white mb-0">Executive Manager</p>
                     </div>
                     <div className="team-icon d-flex flex-column justify-content-center m-4">
                       <a
@@ -163,7 +159,7 @@ const AboutPage = () => {
                     />
                     <div className="team-content text-center py-3 bg-dark rounded-bottom">
                       <h4 className="text-primary">Martin Hill</h4>
-                      <p className="text-white mb-0">Kitchen Porter</p>
+                      <p className="text-white mb-0">Expert Designer</p>
                     </div>
                     <div className="team-icon d-flex flex-column justify-content-center m-4">
                       <a
@@ -199,7 +195,7 @@ const AboutPage = () => {
                     />
                     <div className="team-content text-center py-3 bg-dark rounded-bottom">
                       <h4 className="text-primary">Adam Smith</h4>
-                      <p className="text-white mb-0">Head Chef</p>
+                      <p className="text-white mb-0">Expert Designer</p>
                     </div>
                     <div className="team-icon d-flex flex-column justify-content-center m-4">
                       <a
