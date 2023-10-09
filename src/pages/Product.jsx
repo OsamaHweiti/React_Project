@@ -4,12 +4,14 @@ import { Link, useParams } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import { useDispatch } from "react-redux";
 import { addCart } from "../redux/action";
-
+import Axios from "axios";
 import { Footer, Navbar } from "../components";
 
 const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
+  const [cat_id, setCat] = useState([]);
+
   const [similarProducts, setSimilarProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [loading2, setLoading2] = useState(false);
@@ -20,23 +22,69 @@ const Product = () => {
     dispatch(addCart(product));
   };
 
+  // useEffect(() => {
+  //   const getProduct = async () => {
+  //     setLoading(true);
+  //     setLoading2(true);
+  //     const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+  //     const data = await response.json();
+  //     setProduct(data);
+  //     setLoading(false);
+  //     const response2 = await fetch(
+  //       `https://fakestoreapi.com/products/category/${data.category}`
+  //     );
+  //     const data2 = await response2.json();
+  //     setSimilarProducts(data2);
+  //     setLoading2(false);
+  //   };
+  //   getProduct();
+  // }, [id]);
   useEffect(() => {
     const getProduct = async () => {
       setLoading(true);
       setLoading2(true);
-      const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-      const data = await response.json();
-      setProduct(data);
-      setLoading(false);
-      const response2 = await fetch(
-        `https://fakestoreapi.com/products/category/${data.category}`
-      );
-      const data2 = await response2.json();
-      setSimilarProducts(data2);
-      setLoading2(false);
+
+      try {
+        // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint for fetching a specific product
+        const response = await Axios.get(`http://localhost/React_Project/src/DB/products/getproid.php?id=${id}`);
+        const data = response.data;
+        setProduct(data);
+        setLoading(false);  
+       
+        // const similarProductsResponse = await Axios.get(`http://localhost/React_Project/src/DB/products/getsimilar.php?category_id=${product.category_id}&id=${id}`);
+        // const similarProductsData = similarProductsResponse.data;
+        // setSimilarProducts(similarProductsData);
+        // setLoading2(false);
+        
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      };
+      
+      
     };
+
     getProduct();
   }, [id]);
+  useEffect(() => {
+ 
+    if (product.category_id !== undefined) {
+      const getSimilarProducts = async () => {
+        setLoading2(true);
+        try {
+          // Fetch similar products based on category_id
+          const similarProductsResponse = await Axios.get(`http://localhost/React_Project/src/DB/products/getsimilar.php?category_id=${product.category_id}&id=${id}`);
+          const similarProductsData = similarProductsResponse.data;
+          setSimilarProducts(similarProductsData);
+          setLoading2(false);
+        } catch (error) {
+          console.error("Error fetching similar products:", error);
+        }
+      };
+  
+      getSimilarProducts();
+    }
+  }, [product, id]);
+  
 
   const Loading = () => {
     return (
@@ -69,17 +117,19 @@ const Product = () => {
             <div className="col-md-6 col-sm-12 py-3">
               <img
                 className="img-fluid"
-                src={product.image}
-                alt={product.title}
+                src={`/images/${product.image}`}
+            
+                alt={product.name}
                 width="400px"
                 height="400px"
               />
             </div>
             <div className="col-md-6 col-md-6 py-5">
-              <h4 className="text-uppercase text-muted">{product.category}</h4>
-              <h1 className="display-5">{product.title}</h1>
+              <h4 className="text-uppercase text-muted">{product.category_id}</h4>
+              <h1 className="display-5">{product.name}</h1>
               <p className="lead">
-                {product.rating && product.rating.rate}{" "}
+                {/* {product.rating && product.rating.rate}{" "} */}
+                4.1
                 <i className="fa fa-star"></i>
               </p>
               <h3 className="display-6  my-4">${product.price}</h3>
@@ -133,14 +183,14 @@ const Product = () => {
                 <div key={item.id} className="card mx-4 text-center">
                   <img
                     className="card-img-top p-3"
-                    src={item.image}
+                    src={`/images/${item.image}`}
                     alt="Card"
                     height={300}
                     width={300}
                   />
                   <div className="card-body">
                     <h5 className="card-title">
-                      {item.title.substring(0, 15)}...
+                      {item.name.substring(0, 15)}...
                     </h5>
                   </div>
                   {/* <ul className="list-group list-group-flush">
