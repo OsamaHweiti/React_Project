@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Footer, Navbar } from "../components";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
+
 const Checkout = () => {
   const state = useSelector((state) => state.handleCart);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
   const checkLoggedInStatus = () => {
     const userToken = localStorage.getItem("login"); 
 
@@ -26,7 +29,9 @@ const Checkout = () => {
     // Check if the user is logged in before proceeding
     if (isLoggedIn) {
       // Continue with the checkout logic
-      alert("Order placed successfully!");
+      
+        
+      navigate('/');
     } else {
       // Display a message or take appropriate action for non-logged-in users
       alert("Please log in to continue.");
@@ -184,7 +189,7 @@ const Checkout = () => {
                         <br />
                         <select className="form-select" id="country" required>
                           <option value="">Choose...</option>
-                          <option>India</option>
+                          <option>Jordan</option>
                         </select>
                         <div className="invalid-feedback">
                           Please select a valid country.
@@ -198,7 +203,7 @@ const Checkout = () => {
                         <br />
                         <select className="form-select" id="state" required>
                           <option value="">Choose...</option>
-                          <option>Punjab</option>
+                          <option>Aqaba</option>
                         </select>
                         <div className="invalid-feedback">
                           Please provide a valid state.
@@ -229,69 +234,12 @@ const Checkout = () => {
                     <div className="row gy-3">
                       <div className="col-md-6">
                         <label for="cc-name" className="form-label">
-                          Name on card
+                          Payment method 
                         </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="cc-name"
-                          placeholder=""
-                          required
-                        />
-                        <small className="text-muted">
-                          Full name as displayed on card
-                        </small>
-                        <div className="invalid-feedback">
-                          Name on card is required
-                        </div>
-                      </div>
-
-                      <div className="col-md-6">
-                        <label for="cc-number" className="form-label">
-                          Credit card number
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="cc-number"
-                          placeholder=""
-                          required
-                        />
-                        <div className="invalid-feedback">
-                          Credit card number is required
-                        </div>
-                      </div>
-
-                      <div className="col-md-3">
-                        <label for="cc-expiration" className="form-label">
-                          Expiration
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="cc-expiration"
-                          placeholder=""
-                          required
-                        />
-                        <div className="invalid-feedback">
-                          Expiration date required
-                        </div>
-                      </div>
-
-                      <div className="col-md-3">
-                        <label for="cc-cvv" className="form-label">
-                          CVV
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="cc-cvv"
-                          placeholder=""
-                          required
-                        />
-                        <div className="invalid-feedback">
-                          Security code required
-                        </div>
+                        <select className="form-select" id="state" required>
+                          <option value="">Choose...</option>
+                          <option>Cash On Delivery</option>
+                        </select>
                       </div>
                     </div>
 

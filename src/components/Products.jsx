@@ -168,7 +168,7 @@ const Products = () => {
         <Card.Body>
           
          
-          <Button variant="primary" style={{ width: '100%' }} className="btn btn-outline-dark btn-sm m-2" onClick={() => filterProduct("electronics")}>Necklace</Button>
+          <Button variant="primary" style={{ width: '100%' }} className="btn btn-outline-dark btn-sm m-2" onClick={() => filterProduct(12)}>Pendent</Button>
         </Card.Body>
       </Card>
          

@@ -1,8 +1,5 @@
 <?php
-header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
-header("Access-Control-Allow-Headers: Content-Disposition, Content-Type, Content-Length, Accept-Encoding");
-header("Content-type: application/json");
+
 
 require_once './config.php';
 
@@ -14,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $firstName = $data->firstName;
     $lastName = $data->lastName;
     $email = $data->email;
-    $password = password_hash($data->password, PASSWORD_DEFAULT);
+    $password = $data->password;
     $Address = $data->address;
     $phone = $data->phoneNumber;
     $type = 0;
