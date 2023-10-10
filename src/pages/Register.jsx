@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import { Footer, Navbar } from "../components";
 const Register = () => {
-    const navigate = useNavigate
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -26,7 +26,7 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        Axios.post("http://localhost/projectreact/src/DB/useradd.php", formData)
+        Axios.post("http://localhost/React_Project/src/DB/register.php", formData)
           .then((response) => {
             console.log("User added successfully:", response.data);
     
@@ -39,7 +39,7 @@ const Register = () => {
               address: "",
               type: "0",
             });
-            navigate('/admin/users');
+            navigate('/login');
             
     
           })

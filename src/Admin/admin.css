@@ -137,6 +137,7 @@ body {
 }
 
 .card {
+  color: black;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -144,8 +145,9 @@ body {
   border-radius: 5px;
 }
 
-.card:first-child {
+.cardadmin{
   background-color: #2962ff;
+  box-shadow: 5px 5px 5px 5px #ccc;
 }
 
 .card:nth-child(2) {

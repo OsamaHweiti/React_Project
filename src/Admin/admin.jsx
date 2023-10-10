@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import './admin.css';
+
 import Header from './admincomp/Header';
 import Sidebar from './admincomp/Sidebar';
 // import Home from './admincomp/Home';

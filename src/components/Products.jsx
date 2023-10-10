@@ -50,7 +50,7 @@ const Products = () => {
       
       try {
         const response = await Axios.get("http://localhost/React_Project/src/DB/products/prodget.php");
-         const categ = await Axios.get("http://localhost/projectreact/src/DB/category/catget.php")
+         const categ = await Axios.get("http://localhost/React_Project/src/DB/category/catget.php")
         if (componentMounted) {
           setData(response.data);
           setFilter(response.data);
@@ -99,7 +99,7 @@ const Products = () => {
   };
 
   const filterProduct = (cat) => {
-    const updatedList = data.filter((item) => item.category === cat);
+    const updatedList = data.filter((item) => item.category_id === cat);
     setFilter(updatedList);
   }
   const ShowProducts = () => {
@@ -123,7 +123,7 @@ const Products = () => {
         <Card.Body>
           
          
-          <Button variant="primary" style={{ width: '100%' }} className="btn btn-outline-dark btn-sm m-2" onClick={() => filterProduct("Necklaces")}>Necklaces </Button>
+          <Button variant="primary" style={{ width: '100%' }} className="btn btn-outline-dark btn-sm m-2" onClick={() => filterProduct(9)}>Necklaces </Button>
         </Card.Body>
       </Card>
          
@@ -138,7 +138,7 @@ const Products = () => {
         <Card.Body>
           
          
-          <Button variant="primary" style={{ width: '100%' }} className="btn btn-outline-dark btn-sm m-2" onClick={() => filterProduct("Earrings")}>
+          <Button variant="primary" style={{ width: '100%' }} className="btn btn-outline-dark btn-sm m-2" onClick={() => filterProduct(10)}>
           Earrings</Button>
         </Card.Body>
       </Card>

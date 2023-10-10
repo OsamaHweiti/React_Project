@@ -2,7 +2,7 @@ import React from 'react'
 import 
  {BsFillBellFill, BsFillEnvelopeFill, BsPersonCircle, BsSearch, BsJustify}
  from 'react-icons/bs'
-
+ import '../admin.css';
 function Header({OpenSidebar}) {
   return (
     <header className='header'>

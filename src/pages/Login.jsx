@@ -7,7 +7,7 @@ import Axios from 'axios';
 
 
 const Login = () => {
-  const navigate = useNavigate
+  const navigate = useNavigate();
   const [formData, getFormData] = useState({
     email: '',
     password: '',
@@ -23,7 +23,7 @@ const Login = () => {
 const handleSubmit = (e) => {
   e.preventDefault();
   
-  Axios.post("http://localhost/projectreact/src/DB/useradd.php", formData)
+  Axios.post("http://localhost/React_Project/src/DB/login.php", formData)
     .then((response) => {
       console.log("User added successfully:", response.data);
 
@@ -34,7 +34,19 @@ const handleSubmit = (e) => {
         password: "",
       
       });
-      navigate('/admin/users');
+
+      if (response.data.success) {
+   
+        localStorage.setItem('login', 'true');
+        localStorage.setItem('id', response.data.UserId);
+if (response.data.is_admin==1)
+        
+        navigate('/admin');
+        else{
+          navigate("/")
+        }
+      } 
+     
       
 
     })
@@ -51,7 +63,7 @@ const handleSubmit = (e) => {
         <hr />
         <div class="row my-4 h-100">
           <div className="col-md-4 col-lg-4 col-sm-8 mx-auto">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div class="my-3">
                 <label for="display-4">Email address</label>
                 <input
@@ -59,9 +71,10 @@ const handleSubmit = (e) => {
                   class="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
-                  value={getFormData.email}
+                  value={formData.email}
                   onChange={handleInputChange}
                   required
+                  name="email"
                 />
               </div>
               <div class="my-3">
@@ -71,9 +84,10 @@ const handleSubmit = (e) => {
                   class="form-control"
                   id="floatingPassword"
                   placeholder="Password"
-                  value={getFormData.Password}
+                  value={formData.password}
                   onChange={handleInputChange}
                   required
+                  name="password"
                 />
               </div>
               <div className="my-3">

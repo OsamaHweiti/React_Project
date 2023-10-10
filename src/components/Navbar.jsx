@@ -1,21 +1,35 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import logoImage from '../assets/logo.png';
+import React, { useState, useEffect } from 'react';
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import logoImage from "../assets/logo.png";
 
 const Navbar = () => {
   const state = useSelector((state) => state.handleCart);
-
+  const [loggedIn, setLoggedIn] = useState(false);
   const logoStyle = {
-    height: '4rem', 
-    width: '12rem',  
+    height: "4rem",
+    width: "12rem",
   };
+  const handleLogout = () => {
+
+    localStorage.removeItem('id');
+    localStorage.removeItem('login');
+  
+    setLoggedIn(false);
+  
+
+  };
+  useEffect(() => {
+
+    const userIsLoggedIn = localStorage.getItem('login') === 'true';
+    setLoggedIn(userIsLoggedIn);
+  }, []);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light py-3 sticky-top">
       <div className="container">
         <NavLink className="navbar-brand fw-bold fs-4 px-2" to="/">
-          <img src={logoImage} alt="Logo" style={logoStyle} /> 
+          <img src={logoImage} alt="Logo" style={logoStyle} />
         </NavLink>
         <button
           className="navbar-toggler mx-2"
@@ -53,12 +67,23 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="buttons text-center">
-            <NavLink to="/login" className="btn btn-outline-dark m-2">
-              <i className="fa fa-sign-in-alt mr-1"></i> Login
-            </NavLink>
-            <NavLink to="/register" className="btn btn-outline-dark m-2">
-              <i className="fa fa-user-plus mr-1"></i> Register
-            </NavLink>
+            {loggedIn ? (
+              <button
+                className="btn btn-outline-dark m-2"
+                onClick={handleLogout}
+              >
+                <i className="fa fa-sign-out-alt mr-1"></i> Logout
+              </button>
+            ) : (
+              <>
+                <NavLink to="/login" className="btn btn-outline-dark m-2">
+                  <i className="fa fa-sign-in-alt mr-1"></i> Login
+                </NavLink>
+                <NavLink to="/register" className="btn btn-outline-dark m-2">
+                  <i className="fa fa-user-plus mr-1"></i> Register
+                </NavLink>
+              </>
+            )}
             <NavLink to="/cart" className="btn btn-outline-dark m-2">
               <i className="fa fa-cart-shopping mr-1"></i> Cart ({state.length})
             </NavLink>

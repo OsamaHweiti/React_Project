@@ -1,9 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Footer, Navbar } from "../components";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 const Checkout = () => {
   const state = useSelector((state) => state.handleCart);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const checkLoggedInStatus = () => {
+    const userToken = localStorage.getItem("login"); 
+
+    if (userToken) {
+      
+      setIsLoggedIn(true);
+    } else {
+      
+      setIsLoggedIn(false);
+    }
+  };
+  useEffect(() => {
+    // Check login status when the component mounts
+    checkLoggedInStatus();
+  }, []);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Check if the user is logged in before proceeding
+    if (isLoggedIn) {
+      // Continue with the checkout logic
+      alert("Order placed successfully!");
+    } else {
+      // Display a message or take appropriate action for non-logged-in users
+      alert("Please log in to continue.");
+    }
+  };
+
 
   const EmptyCart = () => {
     return (
@@ -43,7 +72,8 @@ const Checkout = () => {
                 <div className="card-body">
                   <ul className="list-group list-group-flush">
                     <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                      Products ({totalItems})<span>${Math.round(subtotal)}</span>
+                      Products ({totalItems})
+                      <span>${Math.round(subtotal)}</span>
                     </li>
                     <li className="list-group-item d-flex justify-content-between align-items-center px-0">
                       Shipping
@@ -67,7 +97,7 @@ const Checkout = () => {
                   <h4 className="mb-0">Billing address</h4>
                 </div>
                 <div className="card-body">
-                  <form className="needs-validation" novalidate>
+                  <form className="needs-validation" novalidate onSubmit={handleSubmit}>
                     <div className="row g-3">
                       <div className="col-sm-6 my-1">
                         <label for="firstName" className="form-label">
@@ -268,8 +298,9 @@ const Checkout = () => {
                     <hr className="my-4" />
 
                     <button
-                      className="w-100 btn btn-primary "
-                      type="submit" disabled
+                      className="w-100 btn btn-primary"
+                      type="submit"
+                      disabled={!isLoggedIn}
                     >
                       Continue to checkout
                     </button>

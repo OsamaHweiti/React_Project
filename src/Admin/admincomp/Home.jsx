@@ -112,8 +112,8 @@ function Dash() {
             <h3>DASHBOARD</h3>
         </div>
 
-        <div className='main-cards'>
-            <div className='card'>
+        <div className='main-cards '>
+            <div className='card cardadmin'>
                 <div className='card-inner'>
                     <h3>PRODUCTS</h3>
                     <BsFillArchiveFill className='card_icon'/>
@@ -136,10 +136,10 @@ function Dash() {
             </div>
             <div className='card'>
                 <div className='card-inner'>
-                    <h3>ALERTS</h3>
+                    <h3>SOMEONE</h3>
                     <BsFillBellFill className='card_icon'/>
                 </div>
-                <h1>42</h1>
+                <h1>2</h1>
             </div>
         </div>
 
